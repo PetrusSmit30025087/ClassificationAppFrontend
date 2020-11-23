@@ -18,7 +18,7 @@ function FileUpload() {
         const formData = new FormData();        
         formData.append('file', file); 
 
-        axios.post('http://localhost:3000/upload', formData, {
+        axios.post('https://petrussmitapp.herokuapp.com/upload', formData, {
             onUploadProgress: (ProgressEvent) => {
                 let progress = Math.round(
                 ProgressEvent.loaded / ProgressEvent.total * 100) + '%';
@@ -29,7 +29,7 @@ function FileUpload() {
             console.log(res);
 
             getFile({ name: res.data.name,
-                     path: 'http://localhost:3000' + res.data.path
+                     path: 'https://petrussmitapp.herokuapp.com' + res.data.path
                    })
         }).catch(err => console.log(err))}
     return (
